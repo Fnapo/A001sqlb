@@ -18,7 +18,8 @@ namespace A001sql
 
 		private void PrepararInputs()
 		{
-			LeerConfiguracion(out string servidor, out string baseDatos);
+			LeerConfiguracion(out string servidor, out string baseDatos, out string usuario,
+				out string password);
 			controlErrorServidor.TextEtiqueta = "Servidor:";
 			controlErrorServidor.TextError = "";
 			controlErrorServidor.TextInput = servidor;
@@ -27,10 +28,14 @@ namespace A001sql
 			controlErrorBBDD.TextInput = baseDatos;
 		}
 
-		private void LeerConfiguracion(out string servidor, out string baseDatos)
+		private void LeerConfiguracion(out string servidor, out string baseDatos, out string usuario,
+				out string password)
 		{
 			servidor = ConfigurationManager.AppSettings["Servidor"] ?? "";
 			baseDatos = ConfigurationManager.AppSettings["BaseDatos"] ?? "";
+			usuario = ConfigurationManager.AppSettings["Usuario"] ?? "";
+			password = ConfigurationManager.AppSettings["Password"] ?? "";
+
 			if (servidor != "")
 			{
 				servidor = EncriptarTexto.DesEncriptar(servidor);
@@ -38,6 +43,14 @@ namespace A001sql
 			if (baseDatos != "")
 			{
 				baseDatos = EncriptarTexto.DesEncriptar(baseDatos);
+			}
+			if (usuario != "")
+			{
+				usuario = EncriptarTexto.DesEncriptar(usuario);
+			}
+			if (password != "")
+			{
+				password = EncriptarTexto.DesEncriptar(password);
 			}
 		}
 
@@ -48,8 +61,8 @@ namespace A001sql
 			buttonGuardar.Enabled = false;
 			if (correctos)
 			{
-				string cadenaConexion = $"Persist Security Info=False;Integrated Security=true;" +
-					$"Initial Catalog={controlErrorBBDD.TextInput};server={controlErrorServidor.TextInput}";
+				string cadenaConexion = $"Initial Catalog={controlErrorBBDD.TextInput};"+
+					$"server={controlErrorServidor.TextInput};user={controlErrorUsuario.TextInput};";
 
 				using (SqlConnection conexion = new SqlConnection(cadenaConexion))
 				{
