@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f46411c5a9d74c2187a513d98a7b37b7" Name="Diagram1">
+        <EntityTypeShape EntityType="SakilaBreveModel.actor" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SakilaBreveModel.address" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SakilaBreveModel.category" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SakilaBreveModel.city" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SakilaBreveModel.country" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SakilaBreveModel.film" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SakilaBreveModel.film_actor" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="SakilaBreveModel.actor_fk_actor_address_id" ManuallyRouted="false" />
+        <AssociationConnector Association="SakilaBreveModel.film_actor_fk_film_actor_actor" ManuallyRouted="false" />
+        <AssociationConnector Association="SakilaBreveModel.address_fk_address_city" ManuallyRouted="false" />
+        <AssociationConnector Association="SakilaBreveModel.film_film_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SakilaBreveModel.city_fk_city_country" ManuallyRouted="false" />
+        <AssociationConnector Association="SakilaBreveModel.film_actor_fk_film_actor_film" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
