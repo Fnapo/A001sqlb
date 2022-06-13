@@ -18,7 +18,8 @@ namespace A001sql
 
 		private void PrepararInputs()
 		{
-			LeerConfiguracion(out string servidor, out string baseDatos);
+			LeerConfiguracion(out string servidor, out string baseDatos, out string usuario,
+				out string password);
 			controlErrorServidor.TextEtiqueta = "Servidor:";
 			controlErrorServidor.TextError = "";
 			controlErrorServidor.TextInput = servidor;
@@ -27,7 +28,8 @@ namespace A001sql
 			controlErrorBBDD.TextInput = baseDatos;
 		}
 
-		private void LeerConfiguracion(out string servidor, out string baseDatos)
+		private void LeerConfiguracion(out string servidor, out string baseDatos, 
+			out string usuario, out string password)
 		{
 			servidor = ConfigurationManager.AppSettings["Servidor"] ?? "";
 			baseDatos = ConfigurationManager.AppSettings["BaseDatos"] ?? "";
